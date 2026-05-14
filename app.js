@@ -137,7 +137,7 @@ function renderProfile(user) {
                     <span class="stat-badge">Following: ${following}</span>
                     <span class="stat-badge">Public Repos: ${public_repos}</span>
                 </div>
-                <a href="${html_url}" target="_blank" class="view-profile-btn">GitHub에서 보기</a>
+                <a href="${html_url}" target="_blank" class="view-profile-btn">GitHub에서 Profile 보기</a>
             </div>
         </div>
     `;
