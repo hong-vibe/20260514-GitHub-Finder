@@ -13,6 +13,7 @@ const CONFIG = {
 // --- [2. DOM 요소 선택] ---
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
+const themeBtn = document.getElementById('themeBtn'); // 테마 버튼 추가
 const alertMessage = document.getElementById('alertMessage');
 const profileContainer = document.getElementById('profileContainer');
 const reposContainer = document.getElementById('reposContainer');
@@ -54,6 +55,9 @@ searchInput.addEventListener('keypress', (e) => e.key === 'Enter' && handleSearc
 // 추천 섹션 토글
 recommendedTitle.addEventListener('click', () => toggleRecommendedSection());
 
+// 테마 전환 버튼 클릭
+themeBtn.addEventListener('click', () => toggleTheme());
+
 // --- [5. 비즈니스 로직 핸들러] ---
 /**
  * 검색 프로세스를 조율하는 메인 함수입니다.
@@ -72,6 +76,9 @@ async function handleSearch() {
         // 여기서는 가독성을 위해 순차적으로 호출하였습니다.
         const userData = await GitHubService.getUserProfile(username);
         const reposData = await GitHubService.getUserRepos(username);
+        
+        // 테마 전환 시 차트 재렌더링을 위해 데이터를 저장해둡니다.
+        lastReposData = reposData;
 
         // [UI 업데이트]
         // 검색 결과가 나오면 추천 섹션을 자동으로 축소합니다.
@@ -183,7 +190,10 @@ function renderChart(repos) {
     if (chartInstance) chartInstance.destroy();
 
     const ctx = repoChartCanvas.getContext('2d');
-    Chart.defaults.color = '#c9d1d9';
+    
+    // 테마에 따른 차트 폰트 색상 설정
+    const isLight = document.body.getAttribute('data-theme') === 'light';
+    Chart.defaults.color = isLight ? '#24292f' : '#c9d1d9';
 
     chartInstance = new Chart(ctx, {
         type: 'bar',
@@ -276,5 +286,49 @@ const clearScreen = () => {
     [profileContainer, reposContainer, chartContainer].forEach(el => el.classList.add('hidden'));
 };
 
-// 앱 로드 시 추천 리스트 초기화
+// --- [9. 테마 관리 (Theme Management)] ---
+
+// 차트 재렌더링을 위해 마지막 검색 데이터를 저장할 변수
+let lastReposData = null;
+
+/**
+ * 다크/라이트 테마를 토글하고 설정을 저장합니다.
+ */
+function toggleTheme() {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    applyTheme(newTheme);
+    localStorage.setItem('github-finder-theme', newTheme);
+    
+    // 차트가 있다면 차트 색상도 업데이트하기 위해 재렌더링
+    if (chartInstance && lastReposData) {
+        renderChart(lastReposData);
+    }
+}
+
+/**
+ * 테마를 실제로 적용하는 함수
+ * @param {string} theme - 'light' 또는 'dark'
+ */
+function applyTheme(theme) {
+    if (theme === 'light') {
+        document.body.setAttribute('data-theme', 'light');
+        themeBtn.textContent = '☀️';
+    } else {
+        document.body.removeAttribute('data-theme');
+        themeBtn.textContent = '🌙';
+    }
+}
+
+/**
+ * 초기 테마 설정 로드
+ */
+function initTheme() {
+    const savedTheme = localStorage.getItem('github-finder-theme') || 'dark';
+    applyTheme(savedTheme);
+}
+
+// 앱 초기화
+initTheme();
 initRecommendedDevs();
