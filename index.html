@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 메인 헤더 및 검색창 -->
+        <header class="search-header">
+            <h1>GitHub Finder</h1>
+            <p>사용자의 GitHub ID를 입력하고 프로필과 최신 저장소를 확인하세요.</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="GitHub ID를 입력하세요..." autocomplete="off">
+                <button id="searchBtn">검색</button>
+            </div>
+            <!-- 에러 메시지 출력 영역 -->
+            <div id="alertMessage" class="alert hidden"></div>
+        </header>
+
+        <!-- 추천 개발자 섹션 -->
+        <section id="recommendedSection" class="recommended-section expanded">
+            <h3 id="recommendedTitle">GitHub 추천 개발자 Top 10 <span id="toggleIcon">▼</span></h3>
+            <div class="recommended-wrapper">
+                <div id="recommendedDevs" class="recommended-devs">
+                    <!-- 자바스크립트에서 동적으로 카드가 추가됩니다 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 프로필 카드가 렌더링될 영역 -->
+        <main id="profileContainer" class="profile-container hidden">
+            <!-- 자바스크립트에서 동적으로 프로필 내용이 추가됩니다 -->
+        </main>
+
+        <!-- 최신 저장소 목록이 렌더링될 영역 -->
+        <section id="reposContainer" class="repos-container hidden">
+            <h2>최신 저장소 5개</h2>
+            <div id="reposList" class="repos-list">
+                <!-- 자바스크립트에서 동적으로 저장소 목록이 추가됩니다 -->
+            </div>
+        </section>
+
+        <!-- 차트가 그려질 하단 영역 -->
+        <section id="chartContainer" class="chart-container hidden">
+            <h2>저장소 Star 랭킹</h2>
+            <div class="canvas-wrapper">
+                <canvas id="repoChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <!-- 로직이 담긴 자바스크립트 파일 -->
+    <script src="app.js"></script>
+</body>
+</html>
