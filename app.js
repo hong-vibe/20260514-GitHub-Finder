@@ -167,9 +167,12 @@ function renderRepos(repos) {
     }
 
     // map과 구조 분해 할당을 조합하여 간결하게 목록 생성
-    reposList.innerHTML = repos.map(({ html_url, name, stargazers_count, watchers_count, forks_count }) => `
+    reposList.innerHTML = repos.map(({ html_url, name, description, stargazers_count, watchers_count, forks_count }) => `
         <div class="repo-item">
-            <a href="${html_url}" target="_blank">${name}</a>
+            <div class="repo-info">
+                <a href="${html_url}" target="_blank" class="repo-name">${name}</a>
+                <p class="repo-description">${description || '설명이 없습니다.'}</p>
+            </div>
             <div class="repo-stats">
                 <span class="repo-stat-badge">⭐ ${stargazers_count}</span>
                 <span class="repo-stat-badge">👁 ${watchers_count}</span>
