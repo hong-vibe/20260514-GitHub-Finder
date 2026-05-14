@@ -213,15 +213,15 @@ function renderChart(repos) {
 
 const RECOMMENDED_DEVS = [
     { login: 'torvalds', name: 'Linus Torvalds', desc: 'Linux 및 Git 창시자' },
-    { login: 'gaearon', name: 'Dan Abramov', desc: 'React 및 Redux 코어 개발자' },
     { login: 'yyx990803', name: 'Evan You', desc: 'Vue.js 및 Vite 창시자' },
-    { login: 'tj', name: 'TJ Holowaychuk', desc: 'Express, Koa 등 수백 개의 오픈소스 제작' },
-    { login: 'taylorotwell', name: 'Taylor Otwell', desc: 'Laravel 프레임워크 창시자' },
-    { login: 'sdras', name: 'Sarah Drasner', desc: 'Vue Core 팀원 및 교육자' },
+    { login: 'gaearon', name: 'Dan Abramov', desc: 'React 및 Redux 코어 개발자' },
     { login: 'bradtraversy', name: 'Brad Traversy', desc: '유명 웹 개발 교육 유튜버' },
-    { login: 'rauchg', name: 'Guillermo Rauch', desc: 'Next.js 및 Vercel 창시자' },
+    { login: 'tj', name: 'TJ Holowaychuk', desc: 'Express, Koa 등 수백 개의 오픈소스 제작' },
     { login: 'addyosmani', name: 'Addy Osmani', desc: 'Google 크롬 엔지니어링 리더' },
-    { login: 'wesbos', name: 'Wes Bos', desc: '인기 웹 개발 강사 및 Full Stack' }
+    { login: 'sdras', name: 'Sarah Drasner', desc: 'Vue Core 팀원 및 교육자' },
+    { login: 'wesbos', name: 'Wes Bos', desc: '인기 웹 개발 강사 및 Full Stack' },
+    { login: 'taylorotwell', name: 'Taylor Otwell', desc: 'Laravel 프레임워크 창시자' },
+    { login: 'rauchg', name: 'Guillermo Rauch', desc: 'Next.js 및 Vercel 창시자' }
 ];
 
 /**
