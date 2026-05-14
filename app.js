@@ -213,15 +213,15 @@ function renderChart(repos) {
 
 const RECOMMENDED_DEVS = [
     { login: 'torvalds', name: 'Linus Torvalds', desc: 'Linux 및 Git 창시자' },
+    { login: 'karpathy', name: 'Andrej Karpathy', desc: '전 테슬라 AI 디렉터, AI 권위자' },
+    { login: 'gustavoguanabara', name: 'Gustavo Guanabara', desc: '브라질 유명 IT 교육자' },
     { login: 'yyx990803', name: 'Evan You', desc: 'Vue.js 및 Vite 창시자' },
-    { login: 'gaearon', name: 'Dan Abramov', desc: 'React 및 Redux 코어 개발자' },
-    { login: 'bradtraversy', name: 'Brad Traversy', desc: '유명 웹 개발 교육 유튜버' },
-    { login: 'tj', name: 'TJ Holowaychuk', desc: 'Express, Koa 등 수백 개의 오픈소스 제작' },
-    { login: 'addyosmani', name: 'Addy Osmani', desc: 'Google 크롬 엔지니어링 리더' },
-    { login: 'sdras', name: 'Sarah Drasner', desc: 'Vue Core 팀원 및 교육자' },
-    { login: 'wesbos', name: 'Wes Bos', desc: '인기 웹 개발 강사 및 Full Stack' },
-    { login: 'taylorotwell', name: 'Taylor Otwell', desc: 'Laravel 프레임워크 창시자' },
-    { login: 'rauchg', name: 'Guillermo Rauch', desc: 'Next.js 및 Vercel 창시자' }
+    { login: 'gaearon', name: 'Dan Abramov', desc: 'React 코어 팀, Redux 창시자' },
+    { login: 'peng-zhihui', name: 'Zhihui Peng', desc: '로봇/하드웨어 엔지니어' },
+    { login: 'ruanyf', name: 'Ruan YiFeng', desc: '중국 저명 개발자 및 저자' },
+    { login: 'sindresorhus', name: 'Sindre Sorhus', desc: '풀타임 오픈소스 개발자' },
+    { login: 'bradtraversy', name: 'Brad Traversy', desc: '유튜브 Traversy Media 운영자' },
+    { login: 'claude', name: 'Claude', desc: 'Anthropic AI 프로젝트 계정' }
 ];
 
 /**
