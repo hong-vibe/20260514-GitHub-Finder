@@ -55,8 +55,12 @@ searchInput.addEventListener('keypress', (e) => e.key === 'Enter' && handleSearc
 // 추천 섹션 토글
 recommendedTitle.addEventListener('click', () => toggleRecommendedSection());
 
-// 테마 전환 버튼 클릭
-themeBtn.addEventListener('click', () => toggleTheme());
+// 테마 전환 버튼 클릭 (디버깅을 위해 로그 추가 및 로직 재확인)
+if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+        toggleTheme();
+    });
+}
 
 // --- [5. 비즈니스 로직 핸들러] ---
 /**
@@ -295,7 +299,7 @@ let lastReposData = null;
  * 다크/라이트 테마를 토글하고 설정을 저장합니다.
  */
 function toggleTheme() {
-    const currentTheme = document.body.getAttribute('data-theme');
+    const currentTheme = document.body.getAttribute('data-theme') || 'dark';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     applyTheme(newTheme);
